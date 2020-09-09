@@ -1,0 +1,15 @@
+logging:
+    level:
+        org.example.conference.events: DEBUG
+
+spring:
+    data:
+        mongodb:
+            authentication-database: admin
+            database: event-management
+            username: root
+            password: example
+            port: 27017
+            host: localhost
+
+
