@@ -7,9 +7,9 @@ spring:
         mongodb:
             authentication-database: admin
             database: event-management
-            username: root
-            password: example
-            port: 27017
-            host: localhost
+            username: ${DATABASE_USERNAME:root}
+            password: ${DATABASE_PASSWORD:example}
+            port: ${DATABASE_PORT:27017}
+            host: ${DATABASE_HOST:localhost}
 
 
