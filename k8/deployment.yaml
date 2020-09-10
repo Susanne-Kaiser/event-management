@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: service-event-management
+  name: service-event-management
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: service-event-management
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: service-event-management
+    spec:
+      containers:
+      - image: susannekaiser/service-event-management
+        name: service-event-management
+        env:
+          - name: DATABASE_HOST
+            value: mongodb
+          - name: DATABASE_PORT
+            value: "27017"
+          - name: DATABASE_PASSWORD
+            valueFrom:
+                secretKeyRef:
+                  name: mongodb
+                  key: mongodb-root-password
+status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: service-event-management
+  name: service-event-management
+spec:
+  ports:
+    - port: 8080
+      protocol: TCP
+      targetPort: 8080
+  selector:
+    app: service-event-management
+  type: NodePort
+status:
+  loadBalancer: {}
