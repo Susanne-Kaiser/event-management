@@ -4,7 +4,6 @@ import java.time.OffsetDateTime;
 
 import org.example.conference.events.domain.model.CfP;
 
-import lombok.Data;
 import lombok.Getter;
 
 @Getter
