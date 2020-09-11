@@ -12,4 +12,10 @@ spring:
             port: ${DATABASE_PORT:27017}
             host: ${DATABASE_HOST:localhost}
 
+management:
+    endpoints:
+        web:
+            exposure:
+                include: 'health,info,metrics,prometheus'
+    endpointhealth.show-details: ALWAYS
 
