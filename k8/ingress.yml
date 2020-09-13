@@ -1,0 +1,15 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: conference-app-ingress
+  annotations:
+    ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+    - host: event-management.example.org
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: service-event-management
+              servicePort: 8080

@@ -6,7 +6,7 @@ metadata:
     app: service-event-management
   name: service-event-management
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: service-event-management
